@@ -30,3 +30,4 @@ jobs:
         release_name: v${{ github.sha }}
         files: |
           script.exe
+          taskSchedularPIA.ps1
