@@ -16,7 +16,7 @@ Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de 
 ## Utilisation
 
 1. Exécutez le script en utilisant la commande suivante :
-   .\mtuFragmentation.ps1
+   `.\mtuFragmentation.ps1`
 
 
 ## Résultats
@@ -33,3 +33,9 @@ Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de 
 MTU: 1472
 
 MTU+EnTetes: 1500
+
+![Script](./img/script.png)
+
+## Référence
+
+[![Thumbnail](https://img.youtube.com/vi/v2rOWgGuHBo/maxresdefault.jpg)](https://www.youtube.com/watch?v=v2rOWgGuHBo)
