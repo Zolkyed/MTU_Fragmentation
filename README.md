@@ -9,7 +9,10 @@ Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de 
 
 ## Variables
 
-- **$TailleBufferMax** : Taille maximale du tampon (buffer), par défaut 1500 octets.
+- **$TailleBufferMax** : Taille maximale du tampon (buffer), par défaut **1500 octets**.
+  - **Jumbo Frame** : **9000 octets**  
+  - **WireGuard (IPv6/IPv4)** : **1420 octets** → *(1500 - (40 + 8 + 32))*
+  - **WireGuard (IPv4)** : **1440 octets** → *(1500 - (20 + 8 + 32))*
 - **$AdresseTest** : L'adresse IP cible pour tester la connexion (par défaut `1.1.1.1`).
 - **$TailleBuffer** : Taille du tampon utilisée pour envoyer le ping, ajustée pendant le test.
 
