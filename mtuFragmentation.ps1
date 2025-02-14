@@ -33,3 +33,5 @@ while($MaxTrouve -eq $false){
 }
 Write-Host "MTU: $TailleBuffer"
 Write-Host "MTU+EnTetes: $($TailleBuffer + 28)"
+
+Read-Host -Prompt "Appuyez sur Entrée pour quitter"
