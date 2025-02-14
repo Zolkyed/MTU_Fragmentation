@@ -1,6 +1,6 @@
 # Script de test de fragmentation MTU
 
-Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de la transmission sur un réseau. Il ajuste dynamiquement la taille du tampon (buffer) en fonction des réponses aux tests de ping, afin de déterminer la taille du paquet maximale sans fragmentation.
+Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de la transmission sur un réseau. 
 
 ## Fonctionnalités
 
@@ -33,5 +33,3 @@ Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de 
 MTU: 1472
 
 MTU+EnTetes: 1500
-
-
