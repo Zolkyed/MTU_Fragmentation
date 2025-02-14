@@ -31,6 +31,7 @@ Ce script PowerShell est conçu pour tester la fragmentation de paquets lors de 
 750, 1125, 1312, 1406, 1453, 1476, 1464, 1470, 1473, 1472, trouvé.
 
 MTU: 1472
+
 MTU+EnTetes: 1500
 
 
