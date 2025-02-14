@@ -1,11 +1,11 @@
-$nomTache = "Definir MTU PIA"
-$descriptionTache = "Definir le MTU de PIA a 1440"
-$principalTache = New-ScheduledTaskPrincipal -UserId 'NT AUTHORITY\SYSTEM' -LogonType ServiceAccount -RunLevel Highest
+$taskName = "Set PIA MTU"
+$taskDescription = "Set PIA MTU to 1440"
+$taskPrincipal = New-ScheduledTaskPrincipal -UserId 'NT AUTHORITY\SYSTEM' -LogonType ServiceAccount -RunLevel Highest
 
-$classe = cimclass MSFT_TaskEventTrigger root/Microsoft/Windows/TaskScheduler
-$declencheurEvenement = $classe | New-CimInstance -ClientOnly
-$declencheurEvenement.Enabled = $true
-$declencheurEvenement.Subscription = @"
+$class = cimclass MSFT_TaskEventTrigger root/Microsoft/Windows/TaskScheduler
+$Trigger_onEvent = $class | New-CimInstance -ClientOnly
+$trigger_onEvent.Enabled = $true
+$trigger_onEvent.Subscription = @"
 <QueryList>
     <Query Id="0" Path="Microsoft-Windows-NetworkProfile/Operational">
         <Select Path="Microsoft-Windows-NetworkProfile/Operational">
@@ -15,7 +15,7 @@ $declencheurEvenement.Subscription = @"
 </QueryList>
 "@
 
-$actionTache = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c echo off && netsh interface ipv4 set subinterface ""wgpia0"" mtu=1440 && exit"
+$taskAction = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c echo off && netsh interface ipv4 set subinterface ""wgpia0"" mtu=1440 && exit"
 
-$tache = New-ScheduledTask -Trigger $declencheurEvenement -Action $actionTache -Description $descriptionTache -Principal $principalTache
-Register-ScheduledTask -TaskName $nomTache -InputObject $tache
+$task = New-ScheduledTask -Trigger $Trigger_onEvent -Action $taskAction -Description $taskDescription -Principal $taskPrincipal
+Register-ScheduledTask -TaskName $taskName -InputObject $task
